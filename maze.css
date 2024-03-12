@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+#maze-container {
+    position: relative;
+    width: 80vmin;
+    height: 45vmin;
+    border: 2px solid black;
+}
+#Score {
+    position: absolute;
+    top: 20vmin;
+    font-size: x-large;
+}
+.cell {
+    box-sizing: border-box;
+    position: absolute;
+    width: 5vmin;
+    height: 5vmin;
+    border: none;
+}
+
+.wall {
+    background-color: #001f3f;
+}
+.fog {
+    background-color: #555555;
+}
+.start {
+    background-color: green;
+}
+.end {
+    background-color: red;
+}
+.player {
+    background-color: blue;
+    border-radius: 50%;
+    transition: top 0.3s ease, left 0.3s ease;
+}
