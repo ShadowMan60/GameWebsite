@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris</title>
+    <link rel="stylesheet" href="tetris.css">
 </head>
 <body>
-
+    <div id="game-container">
+        <canvas id="tetris" width="240" height="400"></canvas>
+        <div id="next-piece">Next Piece:</div>
+    </div>
+    <div id="top-score-container">
+        <span>Top Score: </span>
+        <span id="highestScore">0</span>
+    </div>
+    <div id="score">Score: 0</div>
+    <div id="lines">Lines: 0</div> <!-- Added this line -->
+    <div id="gameOver" style="display: none;">
+        <h1>Game Over!</h1>
+        <button id="restartButton">Restart</button>
+    </div>
+    <script src="tetris.js"></script>
 </body>
 </html>
