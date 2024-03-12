@@ -2,9 +2,165 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>cubper</title>
 </head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    #gameveld{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #score-field{
+        width: 100%;
+        text-align: center;
+        font-size: 35px;
+    }
+
+</style>
 <body>
 
+<canvas id="gameveld">
+</canvas>
+<p id="score-field">Score: 0</p>
 </body>
+<script>
+
+    const canvas = document.getElementById("gameveld");
+    const ctx    = canvas.getContext("2d");
+
+    canvas.width = 800;         canvas.height = 500;
+
+    ctx.fillStyle = "#36486b";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    let animationFrameId;
+    let score = 0;
+
+    class Player {
+        constructor(px, py, pzijde, pc) {
+            this.x = px;
+            this.y = py;
+            this.width = pzijde;
+            this.height = pzijde;
+            this.color = pc;
+            this.jumpheight = 30;
+            this.shouldJump = false;
+            this.jumpcounter = 0;
+            this.isGameOver = false;
+        }
+
+        jump() {
+            if(this.shouldJump){
+                this.jumpcounter++;
+                if(this.jumpcounter < 15){
+                    this.y -= this.jumpheight;
+                }else if(this.jumpcounter > 14 && this.jumpcounter < 19){
+                    this.y += 0;
+                }else if(this.jumpcounter < 33){
+                    this.y += this.jumpheight;
+                }
+                if(this.jumpcounter >= 32){
+                    this.jumpcounter = 0;
+                    this.shouldJump = false;
+                }
+            }
+        }
+
+        draw() {
+            ctx.fillStyle = this.color;
+            ctx.fillRect(
+                this.x,
+                this.y,
+                this.width,
+                this.height);
+            this.jump();
+        }
+    }
+
+    class Obstacle {
+        constructor(x, y, width, height, speed) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            this.speed = speed;
+            this.scored = false;
+        }
+
+        move() {
+            this.x -= this.speed;
+        }
+
+        draw() {
+            ctx.fillStyle = "gray";
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+
+    let player = new Player(100, canvas.height - 80, 30, "#08ecd0");
+    let obstacles = [];
+
+    function generateObstacle() {
+        const obstacleWidth = 30;
+        const obstacleHeight = 30;
+        const obstacleSpeed = 5;
+        const obstacleY = canvas.height - 80;
+        obstacles.push(new Obstacle(canvas.width, obstacleY, obstacleWidth, obstacleHeight, obstacleSpeed));
+    }
+
+    function animate() {
+        ctx.fillStyle = "#36486b";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#3B6B71";
+        ctx.fillRect(0, canvas.height - 50, 800, 50);
+
+        player.draw();
+
+        for (let i = 0; i < obstacles.length; i++) {
+            obstacles[i].move();
+            obstacles[i].draw();
+
+            if (player.x < obstacles[i].x + obstacles[i].width &&
+                player.x + player.width > obstacles[i].x &&
+                player.y < obstacles[i].y + obstacles[i].height &&
+                player.y + player.height > obstacles[i].y) {
+                player.isGameOver = true;
+            }
+
+            if (obstacles[i].x + obstacles[i].width < 0) {
+                obstacles.splice(i, 1);
+                score += 10;
+                document.getElementById("score-field").innerHTML = "Score: " + score;
+            }
+        }
+
+        if (!player.isGameOver) {
+            animationFrameId = requestAnimationFrame(animate);
+        } else {
+            cancelAnimationFrame(animationFrameId);
+            ctx.fillStyle = "black";
+            ctx.font = "30px Arial";
+            ctx.fillText("Game Over", canvas.width / 2 - 50, canvas.height / 2);
+        }
+    }
+
+    animate();
+
+    addEventListener("keydown", e => {
+        if (e.code === 'Space') {
+            player.shouldJump = true;
+        }
+    });
+
+    setInterval(generateObstacle, 400); // obstacle time
+
+</script>
 </html>
