@@ -23,22 +23,29 @@ body {
     width: 5vmin;
     height: 5vmin;
     border: none;
+    background-image:url("Images/Hallway.png");
+    background-size:contain;
+    background-color: transparent;
 }
-
 .wall {
-    background-color: #001f3f;
+    background-image:url("Images/Wall.png");
+    background-size:contain;
+    background-color: transparent;
 }
 .fog {
-    background-color: #555555;
+    background-image:url("Images/Fog.png");
+    background-size:contain;
+    background-color: transparent;
 }
 .start {
-    background-color: green;
+    background-color: rgba(0, 128, 0, 0.5);
 }
 .end {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.5);
 }
 .player {
-    background-color: blue;
-    border-radius: 50%;
     transition: top 0.3s ease, left 0.3s ease;
+    background-image:url("Images/PixelMan.png");
+    background-size:contain;
+    background-color: transparent;
 }
