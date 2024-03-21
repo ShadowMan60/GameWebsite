@@ -3,6 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="cd680486-d302-45d3-80e5-d2fe0daff329" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/End.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Fog.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hallway.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/PixelMan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Start.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Wall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maze.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maze.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maze.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tetris.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tetris.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tetris.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,16 +45,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/MAMP/htdocs/projecten/GameWebsite",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/MAMP/htdocs/projecten/GameWebsite&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -52,6 +66,10 @@
       <workItem from="1707132040500" duration="587000" />
       <workItem from="1707829717383" duration="3422000" />
       <workItem from="1710249375922" duration="341000" />
+      <workItem from="1710249721025" duration="3471000" />
+      <workItem from="1710751682867" duration="428000" />
+      <workItem from="1711015128290" duration="2444000" />
+      <workItem from="1711025652718" duration="920000" />
     </task>
     <servers />
   </component>
