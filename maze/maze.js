@@ -96,7 +96,8 @@ function movePlayer(direction) {
     if (newTop === rows - 1 && newLeft === cols - 1) {
         score++;
         document.getElementById("Score").innerHTML = "Maze's solved: " + score;
-        generateSolvableMaze(); // Het doolhof opnieuw genereren als het oplosbaar is
+        generateSolvableMaze();
+        AddTime();
     }
     revealCellsAroundPlayer(newTop, newLeft);
 }
@@ -148,4 +149,40 @@ function revealCellsAroundPlayer(playerTop, playerLeft) {
             }
         }
     }
+}
+
+var CountDownMin = 0;
+var CountDownSec = 30;
+var RemainingTime;
+
+function Timer(Min, Sec) {
+    RemainingTime = Min * 60 + Sec;
+    let display = document.getElementById("Time");
+
+    let interval = setInterval(function() {
+        RemainingTime--;
+        let newMin = Math.floor(RemainingTime / 60);
+        let newSec = RemainingTime % 60;
+        newSec = newSec < 10 ? "0" + newSec : newSec; // Add leading zero if needed
+        display.innerHTML = newMin + ":" + newSec + " left";
+
+        if (RemainingTime <= 0) {
+            clearInterval(interval);
+            document.getElementById("GameOver").style.display = "block"
+        }
+    }, 1000);
+}
+
+function AddTime() {
+    RemainingTime += 5;
+}
+
+Timer(CountDownMin, CountDownSec);
+
+function reset() {
+    Timer(0,30);
+    generateSolvableMaze()
+    document.getElementById("GameOver").style.display = "none"
+    document.getElementById("Score").innerHTML = "Maze's solved: 0"
+    document.getElementById("Time").innerHTML = "0:30 left"
 }

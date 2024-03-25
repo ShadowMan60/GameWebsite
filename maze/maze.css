@@ -17,6 +17,34 @@ body {
     top: 20vmin;
     font-size: x-large;
 }
+#Time {
+    position: absolute;
+    top: 20vmin;
+    right: 65vmin;
+    font-size: x-large;
+}
+#GameOver {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top:40%;
+    left:40%;
+    padding-top:5px;
+    font-size: x-large;
+    width: 40vmin;
+    height: 20vmin;
+    background-color: rgb(220, 220, 220);
+    border-radius: 2vmin;
+    border: rgb(100, 100, 100) 2px solid;
+    text-align: center;
+}
+#GameOver button {
+    
+    position: absolute;
+    top:40%;
+    left:30%;
+    font-size: xx-large;
+}
 .cell {
     box-sizing: border-box;
     position: absolute;
