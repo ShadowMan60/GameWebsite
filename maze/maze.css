@@ -60,6 +60,11 @@ body {
     background-size:contain;
     background-color: transparent;
 }
+.revealer {
+    background-image:url("Images/Revealer.png");
+    background-size:contain;
+    background-color: transparent;
+}
 .fog {
     background-image:url("Images/Fog.png");
     background-size:contain;
@@ -75,6 +80,7 @@ body {
     background-size:contain;
     background-color: transparent;
 }
+
 .player {
     transition: top 0.3s ease, left 0.3s ease;
     background-image:url("Images/PixelMan.png");

@@ -23,6 +23,9 @@ function generateMaze() {
             if (!isStartEndAdjacent && Math.random() < 0.5) {
                 cell.classList.add("wall");
             }
+            if (!isStartEndAdjacent && !cell.classList.contains("wall") && Math.random() < 0.02 ) {
+                cell.classList.add("revealer");
+            }
             cell.style.top = i * 5 + "vmin";
             cell.style.left = j * 5 + "vmin";
             mazeContainer.appendChild(cell);
@@ -35,7 +38,7 @@ function generateMaze() {
     mazeContainer.appendChild(player);
     solveMaze();
     initializeFog();
-    revealCellsAroundPlayer(0, 0);
+    revealCellsAroundPlayer(0, 0, 0, 0);
 }
 
 function solveMaze() {
@@ -92,6 +95,12 @@ function movePlayer(direction) {
     if (cell && !cell.classList.contains("wall")) {
         player.style.top = newTop * 5 + "vmin";
         player.style.left = newLeft * 5 + "vmin";
+        if (cell.classList.contains("revealer")) {
+            setTimeout(() => {
+                Revealer();
+                cell.classList.remove("revealer");
+            }, 500);
+        }
     }
     if (newTop === rows - 1 && newLeft === cols - 1) {
         score++;
@@ -99,7 +108,7 @@ function movePlayer(direction) {
         generateSolvableMaze();
         AddTime();
     }
-    revealCellsAroundPlayer(newTop, newLeft);
+    revealCellsAroundPlayer(newTop, newLeft, 0, 0);
 }
 
 function generateSolvableMaze() {
@@ -136,9 +145,9 @@ function initializeFog() {
     });
 }
 
-function revealCellsAroundPlayer(playerTop, playerLeft) {
-    for (let i = -0; i <= 0; i++) {
-        for (let j = -0; j <= 0; j++) {
+function revealCellsAroundPlayer(playerTop, playerLeft, areaX, areaY) {
+    for (let i = -areaX; i <= areaX; i++) {
+        for (let j = -areaY; j <= areaY; j++) {
             const row = playerTop + i;
             const col = playerLeft + j;
             if (row >= 0 && row < rows && col >= 0 && col < cols) {
@@ -149,6 +158,13 @@ function revealCellsAroundPlayer(playerTop, playerLeft) {
             }
         }
     }
+}
+
+function Revealer() {
+    const player = document.querySelector(".player");
+    const playerTop = parseInt(player.style.top) / 5;
+    const playerLeft = parseInt(player.style.left) / 5;
+    revealCellsAroundPlayer(playerTop, playerLeft, 15, 15);
 }
 
 var CountDownMin = 0;
