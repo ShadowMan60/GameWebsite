@@ -1,30 +1,64 @@
-body {
+body{
+    align-items: center;
+    background-color: lightgray;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
 }
 
-#game-container {
-    border: 2px solid #333;
-    margin-bottom: 10px;
+#linesContainer, #board, #topScoreContainer, #scoreContainer, #nextPieceContainer, #levelContainer, #level, #gameOver, #restartButton{
+    position: relative;
 }
 
-canvas {
-    display: block;
-    margin: auto;
+#linesContainer, #topScoreContainer, #scoreContainer, #nextPieceContainer, #levelContainer, #gameOverContainer{
+    font-size: 26px;
 }
 
-#score {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    font-size: 20px;
-    color: #333;
+#linesContainer{
+    bottom: 230px;
+    left: 205px;
 }
 
-#top-score-container {
-    margin-top: 10px;
+#board{
+    border: 2px solid blue;
+    left: 45px;
+}
+
+#topScoreContainer{
+    bottom: 180px;
+    left: 78px;
+}
+
+#scoreContainer{
+    bottom: 112px;
+    left: 38px;
+}
+
+#nextPieceContainer{
+    bottom: 8px;
+    right: 22px;
+}
+
+#levelContainer{
+    top: 80px;
+    right: 72px;
+}
+
+#level{
+    left: 20px;
+}
+
+#gameOverContainer{
+    position: absolute;
+}
+
+#gameOver{
+    color: white;
+    right: 10px;
+}
+
+#restartButton{
+    left: 20px;
 }

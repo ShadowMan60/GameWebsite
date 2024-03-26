@@ -1,56 +1,110 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const canvas = document.getElementById('tetris');
-    const context = canvas.getContext('2d');
-
-    context.scale(20, 20);
-
-    let linesCount = 0; // Initialize lines count
-
-    function arenaSweep() {
-        let rowCount = 1;
-        outer: for (let y = arena.length - 1; y > 0; --y) {
-            for (let x = 0; x < arena[y].length; ++x) {
-                if (arena[y][x] === 0) {
-                    continue outer;
-                }
-            }
-            const row = arena.splice(y, 1)[0].fill(0);
-            arena.unshift(row);
-            ++y;
-
-            player.score += rowCount * 10;
-            rowCount *= 2;
-            // Burn one line and update the lines count
-            linesCount += 1;
-            document.getElementById('lines').innerText = "Lines:" + linesCount;
-        }
-    }
-
-    function collide(arena, player) {
-        const m = player.matrix;
-        const o = player.pos;
-        for (let y = 0; y < m.length; ++y) {
-            for (let x = 0; x < m[y].length; ++x) {
-                if (m[y][x] !== 0 &&
-                    (arena[y + o.y] &&
-                        arena[y + o.y][x + o.x]) !== 0) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
-    function createMatrix(w, h) {
-        const matrix = [];
-        while (h--) {
-            matrix.push(new Array(w).fill(0));
-        }
-        return matrix;
-    }
-
-    // Inside the createPiece function, add the nextPieceType variable
+const canvas = document.getElementById("board");
+const context = canvas.getContext("2d");
+const gameOverElement = document.getElementById("gameOverContainer");
+context.scale(20, 20);
+let linesCount = 0;
+let level = 0; // Initialize level
 let nextPieceType = '';
+let animationId;
+let dropCounter = 0;
+let dropInterval = 1000;
+let lastTime = 0;
+let highestScore = localStorage.getItem("topScore") || 0;
+let gameActive = true;
+const colors = [
+    null,
+    "#FF0D72",
+    "#0DC2FF",
+    "#0DFF72",
+    "#F538FF",
+    "#FF8E0D",
+    "#FFE138",
+    "#3877FF"
+];
+const arena = createArray(11, 21);
+const player = {
+    position: {x : 0, y : 0},
+    array: null,
+    score: 0
+};
+
+function game() {
+    // Reset gameOver state
+    gameActive = true;
+
+    // Reset lines count and level
+    linesCount = 0;
+    level = 0;
+    document.getElementById("lines").innerText = linesCount;
+    document.getElementById("level").innerText = level; // Display level
+
+    // Reset player
+    playerReset();
+    updateScore();
+    
+    gameOverElement.style.display = "none";
+
+    // Start a new game loop
+    animationId = requestAnimationFrame(update);
+}
+
+function draw() {
+    // Clear the canvas
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw the board background
+    context.fillStyle = '#000';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw grid lines
+    context.strokeStyle = '#888'; // Grid color
+    context.lineWidth = 0.05; // Grid line width
+    for (let x = 0; x <= canvas.width; x += 1) {
+        context.beginPath();
+        context.moveTo(x, 0);
+        context.lineTo(x, canvas.height);
+        context.stroke();
+    }
+    for (let y = 0; y <= canvas.height; y += 1) {
+        context.beginPath();
+        context.moveTo(0, y);
+        context.lineTo(canvas.width, y);
+        context.stroke();
+    }
+
+    // Draw the game pieces
+    drawArray(arena, { x: 0, y: 0 });
+    drawArray(player.array, player.position);
+}
+
+function drawArray(array, offset) {
+    array.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                context.fillStyle = colors[value];
+                context.fillRect(x + offset.x, y + offset.y, 1, 1);
+            }
+        });
+    });
+}
+
+function merge(arena, player) {
+    player.array.forEach((row, y) => {
+        row.forEach((value, x) => {
+            if (value !== 0) {
+                arena[y + player.position.y][x + player.position.x] = value;
+            }
+        });
+    });
+}
+
+function createArray(w, h) {
+    const array = [];
+    while (h--) {
+        array.push(new Array(w).fill(0));
+    }
+    return array;
+}
 
 function createPiece(type) {
     // If nextPieceType is empty, generate a random next piece
@@ -65,7 +119,7 @@ function createPiece(type) {
     nextPieceType = 'ILJOTSZ'[Math.floor(Math.random() * 7)];
 
     // Update the display of the next piece in the HTML
-    document.getElementById('next-piece').innerText = `Next Piece: ${nextPieceType}`;
+    document.getElementById("nextPiece").innerText = nextPieceType;
 
     // Create the piece matrix based on the type
     if (type === 'T') {
@@ -113,43 +167,11 @@ function createPiece(type) {
     }
 }
 
-    function draw() {
-        context.fillStyle = '#000';
-        context.fillRect(0, 0, canvas.width, canvas.height);
-
-        drawMatrix(arena, { x: 0, y: 0 });
-        drawMatrix(player.matrix, player.pos);
-    }
-
-    function drawMatrix(matrix, offset) {
-        matrix.forEach((row, y) => {
-            row.forEach((value, x) => {
-                if (value !== 0) {
-                    context.fillStyle = colors[value];
-                    context.fillRect(x + offset.x,
-                        y + offset.y,
-                        1, 1);
-                }
-            });
-        });
-    }
-
-    function merge(arena, player) {
-        player.matrix.forEach((row, y) => {
-            row.forEach((value, x) => {
-                if (value !== 0) {
-                    arena[y + player.pos.y][x + player.pos.x] = value;
-                }
-            });
-        });
-    }
-
-    // Define the playerDrop function
-function playerDrop() {
+function pieceDrop() {
     if (gameActive) {
-        player.pos.y++;
+        player.position.y++;
         if (collide(arena, player)) {
-            player.pos.y--;
+            player.position.y--;
             merge(arena, player);
             playerReset();
             arenaSweep();
@@ -159,197 +181,167 @@ function playerDrop() {
     }
 }
 
-    function playerMove(dir) {
-        player.pos.x += dir;
-        if (collide(arena, player)) {
-            player.pos.x -= dir;
+function playerMove(direction) {
+    player.position.x += direction;
+    if (collide(arena, player)) {
+        player.position.x -= direction;
+    }
+}
+
+function collide(arena, player) {
+    const a = player.array;
+    const p = player.position;
+    for (let y = 0; y < a.length; ++y) {
+        for (let x = 0; x < a[y].length; ++x) {
+            if (a[y][x] !== 0 &&
+                (arena[y + p.y] &&
+                    arena[y + p.y][x + p.x]) !== 0) {
+                return true;
+            }
         }
     }
+    return false;
+}
 
-    function playerReset() {
-        const pieces = 'ILJOTSZ';
-        player.matrix = createPiece(pieces[pieces.length * Math.random() | 0]);
-        player.pos.y = 0;
-        player.pos.x = (arena[0].length / 2 | 0) - (player.matrix[0].length / 2 | 0);
-        if (collide(arena, player)) {
-            // Game over condition
-            // Clear the arena and reset score
-            gameActive = false;
-            arena.forEach(row => row.fill(0));
-            player.score = 0;
-            
-            // Check if the current score is higher than the highest score
-            if (player.score > highestScore) {
-                highestScore = player.score;
-                localStorage.setItem('highestScore', highestScore);
-            }
-            
-            // Update highest score on the page
-            const highestScoreElement = document.getElementById('highestScore');
-            highestScoreElement.innerText = highestScore;
-            
-            // Show game over message
-            const gameOverElement = document.getElementById('gameOver');
-            gameOverElement.style.display = 'block';
-            
-            // Stop the game loop
-            cancelAnimationFrame(animationId);
+function playerRotate(direction) {
+    const position = player.position.x;
+    let offset = 1;
+    rotate(player.array, direction);
+    while (collide(arena, player)) {
+        player.position.x += offset;
+        offset = -(offset + (offset > 0 ? 1 : -1));
+        if (offset > player.array[0].length) {
+            rotate(player.array, -dir);
+            player.position.x = position;
             return;
         }
     }
+}
 
-    let animationId;
+function rotate(array, direction) {
+    for (let y = 0; y < array.length; ++y) {
+        for (let x = 0; x < y; ++x) {
+            [
+                array[x][y],
+                array[y][x],
+            ] = [
+                array[y][x],
+                array[x][y],
+            ];
+        }
+    }
+    if (direction > 0) {
+        array.forEach(row => row.reverse());
+    } else {
+        array.reverse();
+    }
+}
 
-    function playerRotate(dir) {
-        const pos = player.pos.x;
-        let offset = 1;
-        rotate(player.matrix, dir);
-        while (collide(arena, player)) {
-            player.pos.x += offset;
-            offset = -(offset + (offset > 0 ? 1 : -1));
-            if (offset > player.matrix[0].length) {
-                rotate(player.matrix, -dir);
-                player.pos.x = pos;
-                return;
+function arenaSweep() {
+    let rowCount = 0;
+    outer: for (let y = arena.length - 1; y > 0; --y) {
+        for (let x = 0; x < arena[y].length; ++x) {
+            if (arena[y][x] === 0) {
+                continue outer;
             }
         }
-    }
+        const row = arena.splice(y, 1)[0].fill(0);
+        arena.unshift(row);
+        ++y;
 
-    function rotate(matrix, dir) {
-        for (let y = 0; y < matrix.length; ++y) {
-            for (let x = 0; x < y; ++x) {
-                [
-                    matrix[x][y],
-                    matrix[y][x],
-                ] = [
-                    matrix[y][x],
-                    matrix[x][y],
-                ];
-            }
-        }
-        if (dir > 0) {
-            matrix.forEach(row => row.reverse());
-        } else {
-            matrix.reverse();
+        player.score += (rowCount + 1) * 10;
+        rowCount *= 2;
+        // Update lines count
+        linesCount += 1;
+        document.getElementById("lines").innerText = linesCount;
+
+        // Check if it's time to increase the level
+        if (linesCount >= 10) {
+            level++; // Increase level
+            dropInterval *= 0.8; // Decrease drop interval to increase speed
+            document.getElementById("level").innerText = level; // Update level display
         }
     }
+}
 
-    let dropCounter = 0;
-    let dropInterval = 1000;
-
-    let lastTime = 0;
-
-    function update(time = 0) {
-        const deltaTime = time - lastTime;
-        lastTime = time;
-    
-        dropCounter += deltaTime;
-        if (dropCounter > dropInterval) {
-            playerDrop();
-        }
-    
-        draw();
-        updateScore(); // Update score after drawing
-        animationId = requestAnimationFrame(update); // Store animation ID
-    }
-
-    let highestScore = localStorage.getItem('highestScore') || 0; // Retrieve highest score from localStorage or set it to 0 if not found
-
-    function updateScore() {
-        const scoreElement = document.getElementById('score');
-        const currentScore = player.score;
-        scoreElement.innerText = "score: " + currentScore;
-    
+function playerReset() {
+    const pieces = 'ILJOTSZ';
+    player.array = createPiece(pieces[pieces.length * Math.random() | 0]);
+    player.position.y = 0;
+    player.position.x = (arena[0].length / 2 | 0) - (player.array[0].length / 2 | 0);
+    if (collide(arena, player)) {
+        // Game over condition
+        // Clear the arena and reset score
+        gameActive = false;
+        arena.forEach(row => row.fill(0));
+        player.score = 0;
+        
         // Check if the current score is higher than the highest score
-        if (currentScore > highestScore) {
-            highestScore = currentScore;
-            // Save the highest score to local storage
-            localStorage.setItem('highestScore', highestScore);
+        if (player.score > highestScore) {
+            highestScore = player.score;
+            localStorage.setItem("topScore", highestScore);
         }
-    
+        
         // Update highest score on the page
-        const highestScoreElement = document.getElementById('highestScore');
+        const highestScoreElement = document.getElementById("topScore");
         highestScoreElement.innerText = highestScore;
-    }
- 
-let gameActive = true; // Global variable to track the game state
 
-// Define the update function to control the game loop
+        gameOverElement.style.display = 'block';
+
+        document.getElementById('restartButton').addEventListener('click', game);
+        
+        // Stop the game loop
+        cancelAnimationFrame(animationId);
+        return;
+    }
+}
+
 function update(time = 0) {
-    if (gameActive) {
-        const deltaTime = time - lastTime;
-        lastTime = time;
+    const deltaTime = time - lastTime;
+    lastTime = time;
 
-        dropCounter += deltaTime;
-        if (dropCounter > dropInterval) {
-            playerDrop();
-        }
-
-        draw();
-        updateScore(); // Update score after drawing
-        animationId = requestAnimationFrame(update);
+    dropCounter += deltaTime;
+    if (dropCounter > dropInterval) {
+        pieceDrop();
     }
+
+    draw();
+    updateScore(); // Update score after drawing
+    animationId = requestAnimationFrame(update); // Store animation ID
 }
 
-// Define the restartGame function
-function restartGame() {
-    // Reset gameOver state
-    gameActive = true;
 
-    // Reset lines count
-    linesCount = 0;
-    document.getElementById('lines').innerText = "Lines: " + linesCount;
+function updateScore() {
+    const scoreElement = document.getElementById("score");
+    const currentScore = player.score;
+    scoreElement.innerText = currentScore;
 
-    // Hide the game over message
-    const gameOverElement = document.getElementById('gameOver');
-    gameOverElement.style.display = 'none';
+    // Check if the current score is higher than the highest score
+    if (currentScore > highestScore) {
+        highestScore = currentScore;
+        // Save the highest score to local storage
+        localStorage.setItem("topScore", highestScore);
+    }
 
-    // Reset player
-    playerReset();
-    updateScore();
-
-    // Start a new game loop
-    animationId = requestAnimationFrame(update);
+    // Update highest score on the page
+    const highestScoreElement = document.getElementById("topScore");
+    highestScoreElement.innerText = highestScore;
 }
 
-// Add an event listener to the restart button
-document.getElementById('restartButton').addEventListener('click', restartGame);
-
-    
-    const colors = [
-        null,
-        '#FF0D72',
-        '#0DC2FF',
-        '#0DFF72',
-        '#F538FF',
-        '#FF8E0D',
-        '#FFE138',
-        '#3877FF',
-    ];
-
-    const arena = createMatrix(12, 20);
-
-    const player = {
-        pos: { x: 0, y: 0 },
-        matrix: null,
-        score: 0,
-    };
-
-    document.addEventListener('keydown', event => {
-        if (event.keyCode === 37) {
-            playerMove(-1);
-        } else if (event.keyCode === 39) {
-            playerMove(1);
-        } else if (event.keyCode === 40) {
-            playerDrop();
-        } else if (event.keyCode === 81) {
-            playerRotate(-1);
-        } else if (event.keyCode === 87) {
-            playerRotate(1);
-        }
-    });
-
-    playerReset();
-    updateScore();
-    update();
+document.addEventListener('keydown', event => {
+    if (event.keyCode === 37) {
+        playerMove(-1);
+    } else if (event.keyCode === 39) {
+        playerMove(1);
+    } else if (event.keyCode === 40) {
+        pieceDrop();
+    } else if (event.keyCode === 81) {
+        playerRotate(-1);
+    } else if (event.keyCode === 87) {
+        playerRotate(1);
+    }
 });
+
+playerReset();
+updateScore();
+update();
