@@ -96,8 +96,8 @@ function movePlayer(direction) {
         player.style.top = newTop * 5 + "vmin";
         player.style.left = newLeft * 5 + "vmin";
         if (cell.classList.contains("revealer")) {
+            Revealer();
             setTimeout(() => {
-                Revealer();
                 cell.classList.remove("revealer");
             }, 500);
         }
@@ -164,7 +164,15 @@ function Revealer() {
     const player = document.querySelector(".player");
     const playerTop = parseInt(player.style.top) / 5;
     const playerLeft = parseInt(player.style.left) / 5;
-    revealCellsAroundPlayer(playerTop, playerLeft, 15, 15);
+    setTimeout(() => {
+        revealCellsAroundPlayer(playerTop, playerLeft, 1, 1);
+    }, 200);
+    setTimeout(() => {
+        revealCellsAroundPlayer(playerTop, playerLeft, 2, 2);
+    }, 400);
+    setTimeout(() => {
+        revealCellsAroundPlayer(playerTop, playerLeft, 3, 3);
+    }, 600);
 }
 
 var CountDownMin = 0;
