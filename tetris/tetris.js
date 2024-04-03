@@ -38,6 +38,10 @@ function game() {
     document.getElementById("lines").innerText = linesCount;
     document.getElementById("level").innerText = level; // Display level
 
+    dropInterval = 1000;
+
+    player.score = 0;
+
     // Reset player
     playerReset();
     updateScore();
@@ -256,43 +260,11 @@ function arenaSweep() {
         document.getElementById("lines").innerText = linesCount;
 
         // Check if it's time to increase the level
-        if (linesCount >= 10) {
+        if (linesCount >= 10 && linesCount % 10 === 0) {
             level++; // Increase level
-            dropInterval *= 0.8; // Decrease drop interval to increase speed
+            dropInterval *= 0.9; // Decrease drop interval to increase speed
             document.getElementById("level").innerText = level; // Update level display
         }
-    }
-}
-
-function playerReset() {
-    const pieces = 'ILJOTSZ';
-    player.array = createPiece(pieces[pieces.length * Math.random() | 0]);
-    player.position.y = 0;
-    player.position.x = (arena[0].length / 2 | 0) - (player.array[0].length / 2 | 0);
-    if (collide(arena, player)) {
-        // Game over condition
-        // Clear the arena and reset score
-        gameActive = false;
-        arena.forEach(row => row.fill(0));
-        player.score = 0;
-        
-        // Check if the current score is higher than the highest score
-        if (player.score > highestScore) {
-            highestScore = player.score;
-            localStorage.setItem("topScore", highestScore);
-        }
-        
-        // Update highest score on the page
-        const highestScoreElement = document.getElementById("topScore");
-        highestScoreElement.innerText = highestScore;
-
-        gameOverElement.style.display = 'block';
-
-        document.getElementById('restartButton').addEventListener('click', game);
-        
-        // Stop the game loop
-        cancelAnimationFrame(animationId);
-        return;
     }
 }
 
@@ -326,6 +298,38 @@ function updateScore() {
     // Update highest score on the page
     const highestScoreElement = document.getElementById("topScore");
     highestScoreElement.innerText = highestScore;
+}
+
+function playerReset() {
+    const pieces = 'ILJOTSZ';
+    player.array = createPiece(pieces[pieces.length * Math.random() | 0]);
+    player.position.y = 0;
+    player.position.x = (arena[0].length / 2 | 0) - (player.array[0].length / 2 | 0);
+    if (collide(arena, player)) {
+        // Game over condition
+        // Clear the arena and reset score
+        gameActive = false;
+        arena.forEach(row => row.fill(0));
+        player.score = player.score;
+        
+        // Check if the current score is higher than the highest score
+        if (player.score > highestScore) {
+            highestScore = player.score;
+            localStorage.setItem("topScore", highestScore);
+        }
+        
+        // Update highest score on the page
+        const highestScoreElement = document.getElementById("topScore");
+        highestScoreElement.innerText = highestScore;
+
+        gameOverElement.style.display = 'block';
+
+        document.getElementById('restartButton').addEventListener('click', game);
+        
+        // Stop the game loop
+        cancelAnimationFrame(animationId);
+        return;
+    }
 }
 
 document.addEventListener('keydown', event => {

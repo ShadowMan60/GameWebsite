@@ -8,11 +8,12 @@ body{
     padding: 0;
 }
 
-#linesContainer, #board, #topScoreContainer, #scoreContainer, #nextPieceContainer, #levelContainer, #level, #gameOver, #restartButton{
+#linesContainer, #board, #topScoreContainer, #scoreContainer, #nextPieceContainer, #nextPiece, #levelContainer, #level,
+#gameOver, #restartButton{
     position: relative;
 }
 
-#linesContainer, #topScoreContainer, #scoreContainer, #nextPieceContainer, #levelContainer, #gameOverContainer{
+#linesContainer, #topScoreContainer, #scoreContainer, #nextPieceContainer, #levelContainer, #gameOverContainer, #restartButton{
     font-size: 26px;
 }
 
@@ -38,16 +39,20 @@ body{
 
 #nextPieceContainer{
     bottom: 8px;
-    right: 22px;
+    right: 20px;
+}
+
+#nextPiece{
+    left: 20px;
 }
 
 #levelContainer{
     top: 80px;
-    right: 72px;
+    right: 70px;
 }
 
 #level{
-    left: 20px;
+    left: 24px;
 }
 
 #gameOverContainer{
@@ -56,9 +61,15 @@ body{
 
 #gameOver{
     color: white;
+    font-weight: bold;
     right: 10px;
 }
 
 #restartButton{
-    left: 20px;
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    left: 5px;
 }
