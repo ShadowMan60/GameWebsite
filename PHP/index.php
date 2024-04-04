@@ -1,24 +1,27 @@
+<?php
+
+session_start();
+
+
+if (!isset($_SESSION['username'])) {
+
+    header("Location: login.php");
+    exit();
+}
+
+$username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S</title>
+    <title>Welcome</title>
 </head>
-<style>
-    ul{
-        list-style: none;
-    }
-</style>
 <body>
-<nav>
-    <ul>
-        <li><a href="register.php">Register</a></li>
-        <li><a href="login.php">Login</a></li>
-    </ul>
-</nav>
-<?php
-include_once "database.php";
-?>
+<h2>Welcome, <?php echo $username; ?>!</h2>
+<p>Hello, <?php echo $username; ?>. Welcome to our website.</p>
+<p><a href="logout.php">Logout</a></p>
 </body>
 </html>
