@@ -253,8 +253,9 @@ function arenaSweep() {
         arena.unshift(row);
         ++y;
 
-        player.score += (rowCount + 1) * 10;
+        player.score += (rowCount + 1) * 3600;
         rowCount *= 2;
+        
         // Update lines count
         linesCount += 1;
         document.getElementById("lines").innerText = linesCount;
@@ -325,6 +326,9 @@ function playerReset() {
         gameOverElement.style.display = 'block';
 
         document.getElementById('restartButton').addEventListener('click', game);
+        
+        playerMove = false;
+        playerRotate = false;
         
         // Stop the game loop
         cancelAnimationFrame(animationId);
