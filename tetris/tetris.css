@@ -8,7 +8,8 @@ body{
     padding: 0;
 }
 
-#linesContainer, #board, #gameOver, #restartButton, #numberContainer, #score, #nextPiece, #level{
+#linesContainer, #board, #gameOver, #restartButton, #numberContainer, #topScoreContainer, #scoreContainer, #nextPieceContainer,
+#score, #nextPiece, #level{
     position: relative;
 }
 
@@ -46,11 +47,19 @@ body{
 }
 
 #numberContainer{
-    left: 20px;
+    left: 10px;
 }
 
-#score{
-    left: 24px;
+#topScoreContainer{
+    bottom: 80px;
+}
+
+#scoreContainer{
+    bottom: 70px;
+}
+
+#nextPieceContainer{
+    bottom: 40px;
 }
 
 #nextPiece{
