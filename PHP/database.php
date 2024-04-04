@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S</title>
-</head>
-<body>
 <?php
 class Database{
     private $server = null;
@@ -19,7 +11,5 @@ class Database{
     }
 }
 
-$conn = new Database("localhost", "gameweb", "root", "root");
+$connection = new Database("localhost", "gameweb", "root", "root");
 ?>
-</body>
-</html>
