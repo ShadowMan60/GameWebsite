@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cd680486-d302-45d3-80e5-d2fe0daff329" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubper/cubper.html" beforeDir="false" afterPath="$PROJECT_DIR$/cubper/cubper.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -39,6 +40,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "C:/MAMP/htdocs/projecten/GameSite",
+    "list.type.of.created.stylesheet": "CSS",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -69,6 +71,8 @@
       <workItem from="1712237739529" duration="95000" />
       <workItem from="1712239021259" duration="602000" />
       <workItem from="1712241589518" duration="883000" />
+      <workItem from="1712244299461" duration="958000" />
+      <workItem from="1712503019899" duration="121000" />
     </task>
     <servers />
   </component>
