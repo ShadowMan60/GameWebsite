@@ -96,7 +96,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: login.PHP");
     exit();
 }
 $username = $_SESSION['username'];
@@ -109,17 +109,17 @@ $username = $_SESSION['username'];
 
 <div class="SlideShow">
     <div class="mySlides fade">
-        <img src="../GameImg/temporary.jpg">
-        <a href="../cubper/cubper.html">PLAY CUBPER</a>
+        <img src="GameImg/temporary.jpg">
+        <a href="../cubper/cubper.php">PLAY CUBPER</a>
     </div>
 
     <div class="mySlides fade">
-        <img src="../GameImg/Mazer_logo.png">
+        <img src="GameImg/Mazer_logo.png">
         <a href="../mazer/mazer.html">PLAY MAZER</a>
     </div>
 
     <div class="mySlides fade">
-        <img src="../GameImg/temporary.jpg">
+        <img src="GameImg/temporary.jpg">
         <a href="../tetris/tetris.html">PLAY TETRIS</a>
     </div>
 

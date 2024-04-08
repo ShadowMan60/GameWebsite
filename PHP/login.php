@@ -31,12 +31,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user) {
             // Store username in session
             $_SESSION['username'] = $username;
-            // Redirect to index.php
-            header("Location: index.php");
+            // Redirect to index.PHP
+            header("Location: index.PHP");
             exit(); // Make sure no further code is executed
         } else {
             // Redirect back to login page with error message
-            header("Location: login.php?error=1");
+            header("Location: login.PHP?error=1");
             exit();
         }
     } catch (PDOException $e) {
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </form>
 <p>Don't have an account? <a href="register.php">Register</a></p>
 <?php
-// Display error message if redirected from index.php with error parameter
+
 if (isset($_GET['error']) && $_GET['error'] == 1) {
     echo "<p>Invalid username or password. Please try again.</p>";
 }
