@@ -135,12 +135,14 @@ function animate() {
 
 animate();
 
+
 function showGameOver() {
     ctx.fillStyle = "black";
     ctx.font = "30px Arial";
     ctx.textAlign = "center";
     ctx.fillText("", canvas.width / 2, canvas.height / 2);
     document.getElementById("game-over-text").style.display = "block";
+    sendScore(score);
 }
 
 document.getElementById("retry-button").addEventListener("click", function() {
@@ -162,5 +164,23 @@ addEventListener("keydown", e => {
         player.shouldJump = true;
     }
 });
+
+function sendScore(score) {
+    console.log("Sending score to server: " + score);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", scoreInsertionURL, true); // server url out of PHP
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText); // server log
+            } else {
+                console.error('Score insertion failed: ' + xhr.status);
+            }
+        }
+    };
+    xhr.send("score=" + score);
+}
+
 
 setInterval(generateObstacle, 600); // obstacle time
