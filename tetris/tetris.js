@@ -253,7 +253,7 @@ function arenaSweep() {
         arena.unshift(row);
         ++y;
 
-        player.score += (rowCount + 1) * 3600;
+        player.score += (rowCount + 1) * 10;
         rowCount *= 2;
         
         // Update lines count
@@ -326,14 +326,30 @@ function playerReset() {
         gameOverElement.style.display = 'block';
 
         document.getElementById('restartButton').addEventListener('click', game);
-        
-        playerMove = false;
-        playerRotate = false;
+
+        sendScore(player.score);
         
         // Stop the game loop
         cancelAnimationFrame(animationId);
         return;
     }
+}
+
+function sendScore(score) {
+    console.log("Sending score to server: " + score);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", scoreInsertionURL, true); // server url out of PHP
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText); // server log
+            } else {
+                console.error('Score insertion failed: ' + xhr.status);
+            }
+        }
+    };
+    xhr.send("score=" + score);
 }
 
 document.addEventListener('keydown', event => {
