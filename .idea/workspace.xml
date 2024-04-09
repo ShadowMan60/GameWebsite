@@ -16,6 +16,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -37,7 +39,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/MAMP/htdocs/projecten/cubpler",
+    "last_opened_file_path": "C:/MAMP/htdocs/projecten/GameSite",
+    "list.type.of.created.stylesheet": "CSS",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -58,6 +61,18 @@
       <workItem from="1711025652718" duration="1177000" />
       <workItem from="1711238661216" duration="35000" />
       <workItem from="1711308772153" duration="445000" />
+      <workItem from="1711462016248" duration="1870000" />
+      <workItem from="1711629907596" duration="1626000" />
+      <workItem from="1712064916846" duration="753000" />
+      <workItem from="1712177471641" duration="12000" />
+      <workItem from="1712237506666" duration="160000" />
+      <workItem from="1712237669373" duration="44000" />
+      <workItem from="1712237723282" duration="8000" />
+      <workItem from="1712237739529" duration="95000" />
+      <workItem from="1712239021259" duration="602000" />
+      <workItem from="1712241589518" duration="883000" />
+      <workItem from="1712244299461" duration="958000" />
+      <workItem from="1712503019899" duration="121000" />
     </task>
     <servers />
   </component>

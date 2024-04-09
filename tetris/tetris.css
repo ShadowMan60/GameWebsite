@@ -8,51 +8,23 @@ body{
     padding: 0;
 }
 
-#linesContainer, #board, #topScoreContainer, #scoreContainer, #nextPieceContainer, #nextPiece, #levelContainer, #level,
-#gameOver, #restartButton{
+#linesContainer, #board, #gameOver, #restartButton, #numberContainer, #topScoreContainer, #scoreContainer, #nextPieceContainer,
+#score, #nextPiece, #level{
     position: relative;
 }
 
-#linesContainer, #topScoreContainer, #scoreContainer, #nextPieceContainer, #levelContainer, #gameOverContainer, #restartButton{
+#linesContainer, #gameOverContainer, #restartButton, #numberContainer, #score, #nextPiece, #level{
     font-size: 26px;
 }
 
 #linesContainer{
     bottom: 230px;
-    left: 205px;
+    left: 135px;
 }
 
 #board{
     border: 2px solid blue;
-    left: 45px;
-}
-
-#topScoreContainer{
-    bottom: 180px;
-    left: 78px;
-}
-
-#scoreContainer{
-    bottom: 112px;
-    left: 38px;
-}
-
-#nextPieceContainer{
-    bottom: 8px;
-    right: 20px;
-}
-
-#nextPiece{
-    left: 20px;
-}
-
-#levelContainer{
-    top: 80px;
-    right: 70px;
-}
-
-#level{
-    left: 24px;
+    right: 25px;
 }
 
 #gameOverContainer{
@@ -72,4 +44,28 @@ body{
     cursor: pointer;
     font-weight: bold;
     left: 5px;
+}
+
+#numberContainer{
+    left: 10px;
+}
+
+#topScoreContainer{
+    bottom: 80px;
+}
+
+#scoreContainer{
+    bottom: 70px;
+}
+
+#nextPieceContainer{
+    bottom: 40px;
+}
+
+#nextPiece{
+    left: 20px;
+}
+
+#level{
+    left: 24px;
 }

@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box
+}
+
+.mySlides {
+display: none;
+background-color: rgb(130, 130, 130);
+}
+
+img {
+vertical-align: middle;
+width: 100%;
+height: 200px;
+background-size:contain;
+}
+
+body{
+margin: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 25px;
+height: 100vh;
+position: relative;
+}
+
+a{
+margin: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+color: black;
+}
+
+.SlideShow {
+height: 220px;
+}
+
+.prev, .next {
+cursor: pointer;
+position: relative;
+width: 50px;
+height:220px;
+padding: 100px 16px;
+color: white;
+background-color: rgb(130, 130, 130);
+font-weight: bold;
+font-size: 18px;
+transition: 0.6s ease;
+user-select: none;
+}
+
+.next {
+border-radius: 0 5px 5px 0;
+top:-440px;
+left:375px;
+}
+
+.prev {
+border-radius: 5px 0 0 5px;
+top:-220px;
+left:-50px;
+}
+
+.prev:hover, .next:hover {
+background-color: rgb(90, 90, 90);
+}
+
+.text {
+color: black;
+font-size: 15px;
+padding: 8px 12px;
+position: absolute;
+top: 20px;
+left: 20px;
+}
+
+.navigation{
+    position: absolute;
+    right: 4px;
+    top: 1px;
+}
+
+.navigation ul{
+    display: flex;
+    font-size: 22px;
+    gap: 20px;
+    list-style: none;
+}
+
+.navigation li:hover{
+    background-color: green;
+}
+
+.fade {
+animation-name: fade;
+animation-duration: 1.5s;
+}
+
+@keyframes fade {
+from {opacity: .4}
+to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+.prev, .next,.text {font-size: 11px}
+}
