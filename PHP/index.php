@@ -67,7 +67,7 @@ try {
 
 <div class="SlideShow">
     <div class="mySlides fade">
-        <img src="GameImg/temporary.jpg">
+        <img src="GameImg/Cubper_logo.png">
         <a href="../cubper/cubper.php">PLAY CUBPER</a>
     </div>
 
