@@ -44,134 +44,26 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
-    <style>
-        * {
-            box-sizing: border-box
-        }
-
-        .mySlides {
-            display: none;
-            background-color: rgb(130, 130, 130);
-        }
-
-        img {
-            vertical-align: middle;
-            width: 100%;
-            height: 200px;
-            background-size:contain;
-        }
-
-        body{
-            margin: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 25px;
-            height: 100vh;
-            position: relative;
-            flex-direction: column;
-        }
-
-        a{
-            margin: 0;
-            justify-content: center;
-            text-decoration: none;
-            color: black;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .SlideShow {
-            height: 220px;
-        }
-
-        .prev, .next {
-            cursor: pointer;
-            position: relative;
-            width: 50px;
-            height:220px;
-            padding: 100px 16px;
-            color: white;
-            background-color: rgb(130, 130, 130);
-            font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            user-select: none;
-        }
-
-        .next {
-            border-radius: 0 5px 5px 0;
-            top:-440px;
-            left:375px;
-        }
-
-        .prev {
-            border-radius: 5px 0 0 5px;
-            top:-220px;
-            left:-50px;
-        }
-
-        .prev:hover, .next:hover {
-            background-color: rgb(90, 90, 90);
-        }
-
-        .text {
-            color: black;
-            font-size: 15px;
-            padding: 8px 12px;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-        }
-
-        .navigation{
-            position: absolute;
-            right: 4px;
-            top: 1px;
-        }
-
-        .navigation ul{
-            display: flex;
-            font-size: 22px;
-            gap: 20px;
-            list-style: none;
-        }
-
-        .navigation li:hover{
-            background-color: green;
-        }
-
-        .fade {
-            animation-name: fade;
-            animation-duration: 1.5s;
-        }
-
-        @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
-        }
-
-        @media only screen and (max-width: 300px) {
-            .prev, .next,.text {font-size: 11px}
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav class="navigation">
-    <ul>
-        <li>Hello <?php echo $username; ?></li>
-        <li><a href="index.php">Homepage</a></li>
-        <li><a href="logout.php">Logout</a></li>
-    </ul>
-</nav>
+        <li class="home"><a href="index.php">Homepage</a></li>
+        <li></li>
 
-<div class="text">
-    <h2>Welcome, <?php echo $username; ?>!</h2>
-    <p>Hello, <?php echo $username; ?>. Welcome to our website.</p>
-    <p><a href="logout.php">Logout</a></p>
-</div>
+        <li class="search"><div class="container">
+            <input type="text" id="searchInput" placeholder="Search...">
+            <ul id="resultsList">
+                <li><a href="../cubper/cubper.php">Cubper</a></li>
+                <li><a href="../mazer/mazer.html">Mazer</a></li>
+                <li><a href="../tetris/tetris.html">Tetris</a></li>
+            </ul>
+        </div></li>
+
+        <li>Hello <?php echo $username; ?></li>
+
+        <li><a href="logout.php">Logout</a></li>
+</nav>
 
 <div class="SlideShow">
     <div class="mySlides fade">
@@ -211,34 +103,6 @@ if (!empty($highScores)) {
 }
 ?>
 
-
-<script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " active";
-    }
-</script>
+<script src="script.js"></script>
 </body>
 </html>

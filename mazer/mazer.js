@@ -175,9 +175,9 @@ function Revealer() {
     }, 600);
 }
 
-var CountDownMin = 0;
-var CountDownSec = 30;
-var RemainingTime;
+let CountDownMin = 0;
+let CountDownSec = 30;
+let RemainingTime;
 
 function Timer(Min, Sec) {
     RemainingTime = Min * 60 + Sec;
