@@ -1,4 +1,8 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
 session_start();
 require_once '../PHP/Database.php';
 
@@ -78,10 +82,10 @@ if (isset($_POST['score'])) {
         <span id="level">0</span>
     </div>
 </div>
-
 <script>
     // php server url for in javascript
-    let scoreInsertionURL = "<?php echo $_SERVER['PHP_SELF']; ?>";
+    const scoreInsertionURL = "<?php echo $_SERVER['PHP_SELF']; ?>";
+    alert(scoreInsertionURL);
 </script>
 
 <script src="Tetris.js"></script>

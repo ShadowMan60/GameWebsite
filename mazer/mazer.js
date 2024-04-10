@@ -104,7 +104,7 @@ function movePlayer(direction) {
     }
     if (newTop === rows - 1 && newLeft === cols - 1) {
         Score++;
-        document.getElementById("Score").innerHTML = "Maze's solved: " + score;
+        document.getElementById("Score").innerHTML = "Maze's solved: " + Score;
         generateSolvableMaze();
         AddTime();
     }

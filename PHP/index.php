@@ -73,12 +73,12 @@ try {
 
     <div class="mySlides fade">
         <img src="GameImg/Mazer_logo.png">
-        <a href="../mazer/mazer.html">PLAY MAZER</a>
+        <a href="../mazer/mazer.php">PLAY MAZER</a>
     </div>
 
     <div class="mySlides fade">
         <img src="GameImg/Tetris_logo.jpg">
-        <a href="../tetris/tetris.html">PLAY TETRIS</a>
+        <a href="../tetris/tetris.php">PLAY TETRIS</a>
     </div>
 
     <a class="prev" onclick="plusSlides(-1)">❮</a>

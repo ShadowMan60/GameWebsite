@@ -27,6 +27,7 @@ const player = {
     array: null,
     score: 0
 };
+const scoreInsertionURL = "";
 
 function game() {
     // Reset gameOver state
