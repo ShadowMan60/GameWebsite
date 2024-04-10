@@ -1,8 +1,5 @@
 <?php
 
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
 session_start();
 require_once '../PHP/Database.php';
 
@@ -19,7 +16,7 @@ $conn = $db->getConnection();
 
 function insertScore($conn, $username, $score) {
     try {
-        $stmt = $conn->prepare("INSERT INTO highscores (username, score) VALUES (:username, :score)");
+        $stmt = $conn->prepare("INSERT INTO tetris_scores (username, score) VALUES (:username, :score)");
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':score', $score);
         $stmt->execute();
@@ -43,12 +40,9 @@ if (isset($_POST['score'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tetris</title>
-    <link rel="stylesheet" href="Tetris.css">
+    <link rel="stylesheet" href="tetris.css">
 </head>
 <body>
-    <header>
-
-    </header>
     
     <div id="linesContainer">
         <span>Lines -</span>
@@ -85,9 +79,9 @@ if (isset($_POST['score'])) {
 <script>
     // php server url for in javascript
     const scoreInsertionURL = "<?php echo $_SERVER['PHP_SELF']; ?>";
-    alert(scoreInsertionURL);
+
 </script>
 
-<script src="Tetris.js"></script>
+<script src="tetris.js"></script>
 </body>
 </html>

@@ -6,37 +6,71 @@ if (!isset($_SESSION['username'])) {
 }
 $username = $_SESSION['username'];
 
-
 include_once("database.php");
-
 
 $db = new Database("localhost", "gameweb", "root", "root");
 
-// Check if the connection was successful
 if (!$db->getConnection()) {
     die("Connection failed: " . $db->getConnection()->getMessage());
 }
 
-$query = "SELECT username, score FROM highscores ORDER BY score DESC LIMIT 5";
+$query_cubper = "SELECT username, score FROM cubper_scores ORDER BY score DESC LIMIT 5";
+$query_tetris = "SELECT username, score FROM tetris_scores ORDER BY score DESC LIMIT 5";
+$query_mazer = "SELECT username, score FROM mazer_scores ORDER BY score DESC LIMIT 5";
 
 try {
-    // Execute the query
-    $result = $db->getConnection()->query($query);
 
+    $result_cubper = $db->getConnection()->query($query_cubper);
+    $result_tetris = $db->getConnection()->query($query_tetris);
+    $result_mazer = $db->getConnection()->query($query_mazer);
 
-    if ($result->rowCount() > 0) {
-        $highScores = array();
-
-
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $highScores[] = $row;
+    if ($result_cubper->rowCount() > 0) {
+        $highScores_cubper = array();
+        while ($row = $result_cubper->fetch(PDO::FETCH_ASSOC)) {
+            $highScores_cubper[] = $row;
         }
     } else {
-        $highScores = array();
+        $highScores_cubper = array();
+    }
+
+    if ($result_tetris->rowCount() > 0) {
+        $highScores_tetris = array();
+        while ($row = $result_tetris->fetch(PDO::FETCH_ASSOC)) {
+            $highScores_tetris[] = $row;
+        }
+    } else {
+        $highScores_tetris = array();
+    }
+
+    if ($result_mazer->rowCount() > 0) {
+        $highScores_mazer = array();
+        while ($row = $result_mazer->fetch(PDO::FETCH_ASSOC)) {
+            $highScores_mazer[] = $row;
+        }
+    } else {
+        $highScores_mazer = array();
     }
 } catch (PDOException $e) {
     echo "Error executing query: " . $e->getMessage();
 }
+function displayHighScores($game, $highScores) {
+    echo "<h2>$game High Scores</h2>";
+    if (!empty($highScores)) {
+        echo "<table>";
+        echo "<tr><th>Rank</th><th>Username</th><th>Score</th></tr>";
+        foreach ($highScores as $rank => $score) {
+            echo "<tr>";
+            echo "<td>" . ($rank + 1) . "</td>";
+            echo "<td>" . $score['username'] . "</td>";
+            echo "<td>" . $score['score'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "No high scores available";
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,21 +82,19 @@ try {
 </head>
 <body>
 <nav class="navigation">
-        <li class="home"><a href="index.php">Homepage</a></li>
-        <li></li>
-
-        <li class="search"><div class="container">
+    <li class="home"><a href="index.php">Homepage</a></li>
+    <li class="search">
+        <div class="container">
             <input type="text" id="searchInput" placeholder="Search...">
             <ul id="resultsList">
                 <li><a href="../cubper/cubper.php">Cubper</a></li>
                 <li><a href="../mazer/mazer.php">Mazer</a></li>
                 <li><a href="../tetris/tetris.php">Tetris</a></li>
             </ul>
-        </div></li>
-
-        <li>Hello <?php echo $username; ?></li>
-
-        <li><a href="logout.php">Logout</a></li>
+        </div>
+    </li>
+    <li>Hello <?php echo $username; ?></li>
+    <li><a href="logout.php">Logout</a></li>
 </nav>
 
 <div class="SlideShow">
@@ -85,24 +117,16 @@ try {
     <a class="next" onclick="plusSlides(1)">❯</a>
 </div>
 
-<?php
-
-if (!empty($highScores)) {
-    echo "<table>";
-    echo "<tr><th>Rank</th><th>Username</th><th>Score</th></tr>";
-    foreach ($highScores as $rank => $score) {
-        echo "<tr>";
-        echo "<td>" . ($rank + 1) . "</td>";
-        echo "<td>" . $score['username'] . "</td>";
-        echo "<td>" . $score['score'] . "</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-} else {
-    echo "No high scores available";
-}
-?>
+<div class="scores-container">
+    <?php
+    displayHighScores("Cubper", $highScores_cubper);
+    displayHighScores("Tetris", $highScores_tetris);
+    displayHighScores("Mazer", $highScores_mazer);
+    ?>
+</div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
+

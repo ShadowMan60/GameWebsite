@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="cd680486-d302-45d3-80e5-d2fe0daff329" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubper/cubper.php" beforeDir="false" afterPath="$PROJECT_DIR$/cubper/cubper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mazer/mazer.php" beforeDir="false" afterPath="$PROJECT_DIR$/mazer/mazer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tetris/Tetris.php" beforeDir="false" afterPath="$PROJECT_DIR$/tetris/Tetris.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tetris/tetris.js" beforeDir="false" afterPath="$PROJECT_DIR$/tetris/tetris.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,17 +38,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/MAMP/htdocs/projecten/GameSite",
-    "list.type.of.created.stylesheet": "CSS",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/MAMP/htdocs/projecten/GameSite/PHP/tetris.php&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,6 +78,9 @@
       <workItem from="1712241589518" duration="883000" />
       <workItem from="1712244299461" duration="958000" />
       <workItem from="1712503019899" duration="121000" />
+      <workItem from="1712737248949" duration="861000" />
+      <workItem from="1712738478167" duration="2276000" />
+      <workItem from="1712780249063" duration="3868000" />
     </task>
     <servers />
   </component>

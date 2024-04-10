@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
 
 session_start();
 require_once '../PHP/Database.php';
@@ -18,7 +16,7 @@ $conn = $db->getConnection();
 
 function insertScore($conn, $username, $score) {
     try {
-        $stmt = $conn->prepare("INSERT INTO highscores (username, score) VALUES (:username, :score)");
+        $stmt = $conn->prepare("INSERT INTO cubper_scores (username, score) VALUES (:username, :score)");
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':score', $score);
         $stmt->execute();

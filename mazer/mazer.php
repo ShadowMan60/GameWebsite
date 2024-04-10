@@ -15,7 +15,7 @@ $conn = $db->getConnection();
 
 function insertScore($conn, $username, $score) {
     try {
-        $stmt = $conn->prepare("INSERT INTO highscores (username, score) VALUES (:username, :score)");
+        $stmt = $conn->prepare("INSERT INTO mazer_scores (username, score) VALUES (:username, :score)");
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':score', $score);
         $stmt->execute();
