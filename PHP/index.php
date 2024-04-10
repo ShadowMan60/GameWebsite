@@ -55,8 +55,8 @@ try {
             <input type="text" id="searchInput" placeholder="Search...">
             <ul id="resultsList">
                 <li><a href="../cubper/cubper.php">Cubper</a></li>
-                <li><a href="../mazer/mazer.html">Mazer</a></li>
-                <li><a href="../tetris/tetris.html">Tetris</a></li>
+                <li><a href="../mazer/mazer.php">Mazer</a></li>
+                <li><a href="../tetris/tetris.php">Tetris</a></li>
             </ul>
         </div></li>
 
@@ -77,7 +77,7 @@ try {
     </div>
 
     <div class="mySlides fade">
-        <img src="GameImg/temporary.jpg">
+        <img src="GameImg/Tetris_logo.jpg">
         <a href="../tetris/tetris.html">PLAY TETRIS</a>
     </div>
 

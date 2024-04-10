@@ -2,7 +2,7 @@ const mazeContainer = document.getElementById("maze-container");
 const rows = 9;
 const cols = 16;
 let mazeSolved = false;
-let score = 0;
+let Score = 0;
 
 function generateMaze() {
     mazeContainer.innerHTML = '';
@@ -103,7 +103,7 @@ function movePlayer(direction) {
         }
     }
     if (newTop === rows - 1 && newLeft === cols - 1) {
-        score++;
+        Score++;
         document.getElementById("Score").innerHTML = "Maze's solved: " + score;
         generateSolvableMaze();
         AddTime();
@@ -192,7 +192,8 @@ function Timer(Min, Sec) {
 
         if (RemainingTime <= 0) {
             clearInterval(interval);
-            document.getElementById("GameOver").style.display = "block"
+            document.getElementById("GameOver").style.display = "block";
+            sendScore(Score);
         }
     }, 1000);
 }
@@ -209,4 +210,21 @@ function reset() {
     document.getElementById("GameOver").style.display = "none"
     document.getElementById("Score").innerHTML = "Maze's solved: 0"
     document.getElementById("Time").innerHTML = "0:30 left"
+}
+
+function sendScore(score) {
+    console.log("Sending score to server: " + score);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", scoreInsertionURL, true); // server url out of PHP
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                console.log(xhr.responseText); // server log
+            } else {
+                console.error('Score insertion failed: ' + xhr.status);
+            }
+        }
+    };
+    xhr.send("score=" + score);
 }
