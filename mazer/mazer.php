@@ -48,9 +48,10 @@ if (isset($_POST['score'])) {
     <div id="maze-container"></div>
     
 </body>
-<script src="mazer.js"></script>
 <script>
     // php server url for in javascript
-    // let scoreInsertionURL = "<?php echo $_SERVER['PHP_SELF']; ?>";
+    let scoreInsertionURL = "<?php echo $_SERVER['PHP_SELF']; ?>";
 </script>
+
+<script src="mazer.js"></script>
 </html>
