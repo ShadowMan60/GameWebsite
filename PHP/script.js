@@ -58,3 +58,27 @@ function filterListItems() {
         })(item);
     });
 }
+
+
+function Dropdown() {
+    var dropdown = document.getElementById("myDropdown");
+    dropdown.classList.toggle("show");
+
+    var arrow = document.querySelector('.dropbtn .arrow');
+    arrow.textContent = dropdown.classList.contains("show") ? "\u25B2" : "\u25BC"; // Unicode for up and down arrows
+}
+
+window.onclick = function (event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+                var arrow = document.querySelector('.dropbtn .arrow');
+                arrow.textContent = "\u25BC"; // Unicode for down arrow
+            }
+        }
+    }
+}

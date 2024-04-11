@@ -85,17 +85,16 @@ function displayHighScores($game, $highScores) {
     <li class="home"><a href="index.php"><img src="GameImg\Logo.png" alt=""></a></li>
     
     <li></li>
-    <li class="search">
-        <div class="container">
-            <input type="text" id="searchInput" placeholder="Search...">
-            <ul id="resultsList">
-                <li><a href="../cubper/cubper.php">Cubper</a></li>
-                <li><a href="../mazer/mazer.php">Mazer</a></li>
-                <li><a href="../tetris/tetris.php">Tetris</a></li>
-            </ul>
+    <li class="container">
+    <button onclick="Dropdown()" class="dropbtn">Games <span class="arrow">&#9660;</span></button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="../cubper/cubper.php">Cubper</a>
+            <a href="../mazer/mazer.php">Mazer</a>
+            <a href="../tetris/tetris.php">Tetris</a>
         </div>
     </li>
-    <li>Hello <?php echo $username; ?></li>
+    </li>
+    <li>Welcome <?php echo $username; ?></li>
     <li><a href="logout.php">Logout</a></li>
 </nav>
 
