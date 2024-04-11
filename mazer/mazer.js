@@ -229,4 +229,4 @@ function sendScore(score) {
         }
     };
     xhr.send("score=" + score);
-}
+} 
