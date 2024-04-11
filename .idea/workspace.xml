@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd680486-d302-45d3-80e5-d2fe0daff329" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/PHP/form.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cubper/cubper.php" beforeDir="false" afterPath="$PROJECT_DIR$/cubper/cubper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mazer/mazer.php" beforeDir="false" afterPath="$PROJECT_DIR$/mazer/mazer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tetris/Tetris.php" beforeDir="false" afterPath="$PROJECT_DIR$/tetris/Tetris.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tetris/tetris.js" beforeDir="false" afterPath="$PROJECT_DIR$/tetris/tetris.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PHP/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -81,6 +79,7 @@
       <workItem from="1712737248949" duration="861000" />
       <workItem from="1712738478167" duration="2276000" />
       <workItem from="1712780249063" duration="3868000" />
+      <workItem from="1712863320975" duration="4306000" />
     </task>
     <servers />
   </component>
