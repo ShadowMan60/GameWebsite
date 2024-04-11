@@ -117,12 +117,10 @@ function displayHighScores($game, $highScores) {
     <a class="next" onclick="plusSlides(1)">❯</a>
 </div>
 
-<div class="scores-container">
-    <?php
-    displayHighScores("Cubper", $highScores_cubper);
-    displayHighScores("Tetris", $highScores_tetris);
-    displayHighScores("Mazer", $highScores_mazer);
-    ?>
+<div class="ScoresContainer">
+    <div><?php displayHighScores("Cubper", $highScores_cubper); ?></div>
+    <div><?php displayHighScores("Tetris", $highScores_tetris); ?></div>
+    <div><?php displayHighScores("Mazer", $highScores_mazer); ?></div>
 </div>
 
 <script src="script.js"></script>

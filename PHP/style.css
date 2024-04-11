@@ -166,3 +166,8 @@ a {
     margin: 2px;
     border-radius: 5px;
 }
+
+.ScoresContainer {
+    display: flex;
+    gap: 25px;
+}

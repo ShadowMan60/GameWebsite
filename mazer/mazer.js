@@ -210,9 +210,11 @@ function reset() {
     document.getElementById("GameOver").style.display = "none"
     document.getElementById("Score").innerHTML = "Maze's solved: 0"
     document.getElementById("Time").innerHTML = "0:30 left"
+    Score = 0;
 }
 
 function sendScore(score) {
+    score = score*10;
     console.log("Sending score to server: " + score);
     let xhr = new XMLHttpRequest();
     xhr.open("POST", scoreInsertionURL, true); // server url out of PHP
