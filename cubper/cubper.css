@@ -3,6 +3,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(10, 83, 151)
+}
 
 #GameField{
     position: absolute;
