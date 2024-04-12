@@ -94,7 +94,7 @@ function displayHighScores($game, $highScores) {
         </div>
     </li>
     </li>
-    <li>Welcome <?php echo $username; ?></li>
+    <li><a href="profileChange.php">Welcome <?php echo $username; ?></a></li>
     <li><a href="logout.php">Logout</a></li>
 </nav>
 
