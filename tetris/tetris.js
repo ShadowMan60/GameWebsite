@@ -354,15 +354,15 @@ function sendScore(score) {
 }
 
 document.addEventListener('keydown', event => {
-    if (event.keyCode === 37) {
+    if (event.keyCode === 65) {
         playerMove(-1);
-    } else if (event.keyCode === 39) {
+    } else if (event.keyCode === 68) {
         playerMove(1);
-    } else if (event.keyCode === 40) {
+    } else if (event.keyCode === 83) {
         pieceDrop();
     } else if (event.keyCode === 81) {
         playerRotate(-1);
-    } else if (event.keyCode === 87) {
+    } else if (event.keyCode === 69) {
         playerRotate(1);
     }
 });
