@@ -18,6 +18,8 @@ body{
     width: 100%;
     text-align: center;
     font-size: 35px;
+    position: absolute;
+    top: 15%;
 }
 
 #game-over-text {

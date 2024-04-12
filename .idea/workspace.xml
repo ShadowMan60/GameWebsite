@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cd680486-d302-45d3-80e5-d2fe0daff329" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubper/cubper.css" beforeDir="false" afterPath="$PROJECT_DIR$/cubper/cubper.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cubper/cubper.php" beforeDir="false" afterPath="$PROJECT_DIR$/cubper/cubper.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
