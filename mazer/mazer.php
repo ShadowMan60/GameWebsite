@@ -52,7 +52,7 @@ if (isset($_POST['score'])) {
         <div id="myDropdown" class="dropdown-content">
             <a href="../cubper/cubper.php">Cubper</a>
             <a href="../mazer/mazer.php">Mazer</a>
-            <a href="../tetris/tetris.php">Tetris</a>
+            <a href="../tetris/Tetris.php">Tetris</a>
         </div>
     </li>
     </li>
