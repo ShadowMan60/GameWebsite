@@ -67,7 +67,8 @@ if (isset($_POST['score'])) {
 
     <div id="Description">
         <H3>Game Description</H3>
-        <p>Vul eigen tekst in</p>
+        <p>In Mazer you will have to complete as many maze's as possible in 30 seconds, with each solve you will gain 5 seconds. Use the WASD to move arround, There is also 1 special item you can find called the Expander that will reveal the maze in a 7 by 7 radius around the players position.
+        </p>
     </div>
     
 </body>

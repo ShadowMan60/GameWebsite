@@ -121,16 +121,16 @@ generateSolvableMaze();
 
 document.addEventListener("keydown", function (event) {
     switch (event.key) {
-        case "ArrowUp":
+        case "w":
             movePlayer("up");
             break;
-        case "ArrowDown":
+        case "s":
             movePlayer("down");
             break;
-        case "ArrowLeft":
+        case "a":
             movePlayer("left");
             break;
-        case "ArrowRight":
+        case "d":
             movePlayer("right");
             break;
     }

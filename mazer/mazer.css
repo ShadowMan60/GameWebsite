@@ -101,7 +101,9 @@ body {
     border: 5px outset rgb(9, 78, 142);
 }
 #Description *{
+    text-align: center;
     color: white;
+    width: 89%;
 }
 
 a{
