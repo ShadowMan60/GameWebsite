@@ -44,7 +44,7 @@ if (isset($_POST['score'])) {
 <body>
 
 <nav class="navigation">
-    <li class="home"><a href="..\PHP\index.php"><img src="Images\Logo.png" alt=""></a></li>
+    <li class="home"><a href="../PHP/index.php"><img src="Images/Logo.png" alt=""></a></li>
     
     <li></li>
     <li class="container">
@@ -78,5 +78,5 @@ if (isset($_POST['score'])) {
 </script>
 
 <script src="mazer.js"></script>
-<script src="/2A/GameWebsite/PHP/script.js"></script>
+<script src="/PHP/script.js"></script>
 </html>
