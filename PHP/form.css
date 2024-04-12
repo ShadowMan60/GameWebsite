@@ -13,7 +13,7 @@ body {
     width: 30%;
     margin: 0 auto;
     text-align: center;
-    padding-top: 50px; /* Adjust as needed */
+    padding-top: 10px; /* Adjust as needed */
     flex: 1; /* Fill remaining space */
 }
 
