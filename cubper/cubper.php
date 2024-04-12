@@ -46,7 +46,7 @@ if (isset($_POST['score'])) {
 <body>
 
 <nav class="navigation">
-    <li class="home"><a href="index.php"><img src="images\Logo.png" alt=""></a></li>
+    <li class="home"><a href="..\PHP\index.php"><img src="images\Logo.png" alt=""></a></li>
     
     <li></li>
     <li class="container">
