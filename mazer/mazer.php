@@ -42,10 +42,33 @@ if (isset($_POST['score'])) {
     <title>Mazer</title>
 </head>
 <body>
+
+<nav class="navigation">
+    <li class="home"><a href="index.php"><img src="Images\Logo.png" alt=""></a></li>
+    
+    <li></li>
+    <li class="container">
+    <button onclick="Dropdown()" class="dropbtn">Games <span class="arrow">&#9660;</span></button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="../cubper/cubper.php">Cubper</a>
+            <a href="../mazer/mazer.php">Mazer</a>
+            <a href="../tetris/tetris.php">Tetris</a>
+        </div>
+    </li>
+    </li>
+    <li><a href="profileChange.php">Welcome <?php echo $username; ?></a></li>
+    <li><a href="logout.php">Logout</a></li>
+</nav>
+
     <p id="Score">Maze's solved: 0</p>
     <p id="Time">0:30 left</p>
     <div id="GameOver">Game Over<button onclick="reset()">Restart</button></div>
     <div id="maze-container"></div>
+
+    <div id="Description">
+        <H3>Game Description</H3>
+        <p>Vul eigen tekst in</p>
+    </div>
     
 </body>
 <script>

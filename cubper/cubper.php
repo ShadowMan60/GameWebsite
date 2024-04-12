@@ -35,12 +35,6 @@ if (isset($_POST['score'])) {
 ?>
 
 
-<div class="text">
-    <h2>Welcome, <?php echo $username; ?>!</h2>
-    <p>Hello, <?php echo $username; ?>. Welcome to our website.</p>
-    <p><a href="../PHP/logout.php">Logout</a></p>
-</div>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,11 +45,33 @@ if (isset($_POST['score'])) {
 
 <body>
 
+<nav class="navigation">
+    <li class="home"><a href="index.php"><img src="images\Logo.png" alt=""></a></li>
+    
+    <li></li>
+    <li class="container">
+    <button onclick="Dropdown()" class="dropbtn">Games <span class="arrow">&#9660;</span></button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="../cubper/cubper.php">Cubper</a>
+            <a href="../mazer/mazer.php">Mazer</a>
+            <a href="../tetris/tetris.php">Tetris</a>
+        </div>
+    </li>
+    </li>
+    <li><a href="profileChange.php">Welcome <?php echo $username; ?></a></li>
+    <li><a href="logout.php">Logout</a></li>
+</nav>
+
 <canvas id="GameField"></canvas>
 <p id="score-field">Score: 0</p>
 <div id="game-over-text" style="display: none;">
     You Failed<br>
     <button id="retry-button">Retry</button>
+</div>
+
+<div id="Description">
+    <H3>Game Description</H3>
+    <p>Vul eigen tekst in</p>
 </div>
 
 <script>

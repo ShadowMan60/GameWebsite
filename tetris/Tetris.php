@@ -43,6 +43,23 @@ if (isset($_POST['score'])) {
     <link rel="stylesheet" href="tetris.css">
 </head>
 <body>
+
+<nav class="navigation">
+    <li class="home"><a href="index.php"><img src="Images\Logo.png" alt=""></a></li>
+    
+    <li></li>
+    <li class="container">
+    <button onclick="Dropdown()" class="dropbtn">Games <span class="arrow">&#9660;</span></button>
+        <div id="myDropdown" class="dropdown-content">
+            <a href="../cubper/cubper.php">Cubper</a>
+            <a href="../mazer/mazer.php">Mazer</a>
+            <a href="../tetris/tetris.php">Tetris</a>
+        </div>
+    </li>
+    </li>
+    <li><a href="profileChange.php">Welcome <?php echo $username; ?></a></li>
+    <li><a href="logout.php">Logout</a></li>
+</nav>
     
     <div id="linesContainer">
         <span>Lines -</span>
@@ -75,6 +92,10 @@ if (isset($_POST['score'])) {
         <br>
         <span id="level">0</span>
     </div>
+</div>
+<div id="Description">
+    <H3>Game Description</H3>
+    <p>Vul eigen tekst in</p>
 </div>
 <script>
     // php server url for in javascript
