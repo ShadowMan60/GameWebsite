@@ -78,4 +78,5 @@ if (isset($_POST['score'])) {
 </script>
 
 <script src="mazer.js"></script>
+<script src="/2A/GameWebsite/PHP/script.js"></script>
 </html>

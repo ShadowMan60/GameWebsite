@@ -95,7 +95,10 @@ if (isset($_POST['score'])) {
 </div>
 <div id="Description">
     <H3>Game Description</H3>
-    <p>Vul eigen tekst in</p>
+    <p>
+        Score as many points as possible before you topout by using these "tetrominos" to your advantage!
+        Use the ASD for movement or if you want to make it so the tetrominos goes down faster and QE for the rotations.
+    </p>
 </div>
 <script>
     // php server url for in javascript
@@ -104,5 +107,6 @@ if (isset($_POST['score'])) {
 </script>
 
 <script src="tetris.js"></script>
+<script src="/2A/GameWebsite/PHP/script.js"></script>
 </body>
 </html>
