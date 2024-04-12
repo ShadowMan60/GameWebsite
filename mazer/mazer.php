@@ -56,8 +56,8 @@ if (isset($_POST['score'])) {
         </div>
     </li>
     </li>
-    <li><a href="profileChange.php">Welcome <?php echo $username; ?></a></li>
-    <li><a href="logout.php">Logout</a></li>
+    <li><a href="../PHP/profileManagement.php">Welcome <?php echo $username; ?></a></li>
+    <li><a href="../PHP/logout.php">Logout</a></li>
 </nav>
 
     <p id="Score">Maze's solved: 0</p>
