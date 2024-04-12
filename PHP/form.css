@@ -1,9 +1,9 @@
-/* Style for both pages */
+
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #1f3a6d; /* Dark blue background color */
+    background-color: #1f3a6d;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -13,44 +13,41 @@ body {
     width: 30%;
     margin: 0 auto;
     text-align: center;
-    padding-top: 10px; /* Adjust as needed */
-    flex: 1; /* Fill remaining space */
+    padding-top: 10px;
+    flex: 1;
 }
 
 .logo {
-    margin-bottom: 50px; /* Adjust as needed */
+    margin-bottom: 50px;
 }
 
 .form-container {
-    background-color: #ffffff; /* White background color for the form */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .footer {
-    color: #ffffff; /* White text color */
-    margin-top: 20px; /* Adjust as needed */
-    text-align: center; /* Center the text */
+    color: #ffffff;
+    margin-top: 20px;
+    text-align: center;
 }
 
-/* Additional style for the registration page */
 .registration-container {
-    margin-top: 100px; /* Adjust as needed */
+    margin-top: 100px;
 }
 
-/* Additional style for the login page */
 .login-container {
-    margin-top: 100px; /* Adjust as needed */
+    margin-top: 100px;
 }
 
-/* Style for "Already have an account?" link */
 .link-container a {
-    text-decoration: none; /* Remove default underline */
-    color: #ffffff; /* White text color */
-    transition: border-bottom-color 0.3s; /* Smooth transition for the border color */
+    text-decoration: none;
+    color: #ffffff;
+    transition: border-bottom-color 0.3s;
 }
 
 .link-container a:hover {
-    border-bottom: 1px solid #ffffff; /* Add underline on hover */
+    border-bottom: 1px solid #ffffff;
 }

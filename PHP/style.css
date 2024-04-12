@@ -240,3 +240,10 @@ a{
 .show {
     display: block;
 }
+.footer {
+    color: #ffffff;
+    margin-top: 20px;
+    text-align: center;
+    bottom: 0;
+    position: absolute;
+}

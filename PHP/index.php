@@ -125,6 +125,9 @@ function displayHighScores($game, $highScores) {
 </div>
 
 <script src="script.js"></script>
+<div class="footer">
+    <p>© 2024 The Gaming Palace | Kevin | Neo | Jiwoo </p>
+</div>
 </body>
 </html>
 

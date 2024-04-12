@@ -70,8 +70,8 @@ if (isset($_POST['score'])) {
 </div>
 
 <div id="Description">
-    <H3>Game Description</H3>
-    <p>Vul eigen tekst in</p>
+    <H3>cubper Description</H3>
+    <p>cubper is best game for people that have no live like you</p>
 </div>
 
 <script>
