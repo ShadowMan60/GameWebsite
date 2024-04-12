@@ -80,6 +80,6 @@ if (isset($_POST['score'])) {
 </script>
 
 <script src="cubper.js"></script>
-<script src="/2A/GameWebsite/PHP/script.js"></script>
+<script src="/PHP/script.js"></script>
 </body>
 </html>
