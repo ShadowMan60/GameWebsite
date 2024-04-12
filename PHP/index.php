@@ -82,7 +82,7 @@ function displayHighScores($game, $highScores) {
 </head>
 <body>
 <nav class="navigation">
-    <li class="home"><a href="../index.php"><img src="GameImg\Logo.png" alt=""></a></li>
+    <li class="home"><a href="../PHP/index.php"><img src="GameImg\Logo.png" alt=""></a></li>
     
     <li></li>
     <li class="container">
