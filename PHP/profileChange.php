@@ -53,11 +53,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change profile</title>
+    <title>profile management</title>
+    <link rel="stylesheet" href="form.css">
 </head>
 <body>
-    <h2>Change profile</h2>
-    <p>Change your username and password to whatever you like</p>
+<div class="container registration-container">
+    <img src="../PHP/GameImg/Logo.png" alt="Logo" class="logo">
+    <div class="form-container">
+        <h2>profile management</h2>
     <form method="POST" action="">
         <label for="new_username">New Username:</label><br>
         <input type="text" id="new_username" name="new_username" required><br><br>
@@ -65,6 +68,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" id="new_password" name="new_password" required><br><br>
         <input type="submit" value="Update Account">
     </form>
-    <p><a href="index.php">Back to Home</a></p>
+    </div>
+    <div class="link-container">
+        <p><a href="index.php">Back to Home</a></p>
+    </div>
+</div>
+<div class="footer">
+    <p>© 2024 The Gaming Palace | Kevin | Neo | Jiwoo </p>
+</div>
+
 </body>
 </html>
